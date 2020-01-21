@@ -31,7 +31,7 @@ F11::
 
 	}
 
-	COLOR := GetGamePixel(IMAGE_X, IMAGE_Y)
+	COLOR := GetGamePixel(IMAGE_X+7, IMAGE_Y+22)
 
 	isRun := 1
 
@@ -84,13 +84,13 @@ RunMacro() {
 
  	if isRun {
 
- 		ccolor := GetGamePixel(IMAGE_X, IMAGE_Y)
+ 		ccolor := GetGamePixel(IMAGE_X+7, IMAGE_Y+22)
 
  		if (ccolor != COLOR) {
 		
 			SendToGame("f")
 
-			Sleep, 300
+			Sleep, 1000
 
  		}
 
