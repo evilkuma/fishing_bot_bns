@@ -86,11 +86,13 @@ RunMacro() {
 
  		ccolor := GetGamePixel(IMAGE_X+7, IMAGE_Y+22)
 
- 		if (ccolor != COLOR) {
+		res := ccolor != COLOR
+
+ 		if res {
 		
 			SendToGame("F")
 
-			Sleep, 1000
+			Sleep, 500
 
  		}
 
