@@ -88,7 +88,7 @@ RunMacro() {
 
  		if (ccolor != COLOR) {
 		
-			SendToGame("f")
+			SendToGame("F")
 
 			Sleep, 1000
 
