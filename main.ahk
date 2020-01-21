@@ -16,7 +16,14 @@ IMAGE_X = 0
 IMAGE_Y = 0
 
 isRun := 0
-COLOR := false
+PCOLOR := false
+
+F10::
+
+	ccolor := GetGamePixel(IMAGE_X+7, IMAGE_Y+22)
+	MsgBox, %PCOLOR% : %ccolor% - %IMAGE_X% : %IMAGE_Y%
+
+return
 
 ; button down event
 F11::
@@ -31,7 +38,7 @@ F11::
 
 	}
 
-	COLOR := GetGamePixel(IMAGE_X+7, IMAGE_Y+22)
+	PCOLOR := substr( "" . GetGamePixel(IMAGE_X+7, IMAGE_Y+22), 3, 6)
 
 	isRun := 1
 
@@ -39,7 +46,7 @@ F11::
 
 	while (isRun) {
 
-	 	RunMacro()
+	 	RunMacro(IMAGE_X, IMAGE_Y, PCOLOR)
 
 	}
 
@@ -78,17 +85,17 @@ GetGamePixel(x, y) {
 
 }
 
-RunMacro() {
+RunMacro(IMAGE_X, IMAGE_Y, PCOLOR) {
 
- 	global isRun, IMAGE_X, IMAGE_Y, COLOR
+ 	global isRun
 
  	if isRun {
 
- 		ccolor := GetGamePixel(IMAGE_X+7, IMAGE_Y+22)
+ 		ccolor := substr( "" . GetGamePixel(IMAGE_X+7, IMAGE_Y+22), 3, 6)
 
-		res := ccolor != COLOR
+		res := ccolor != PCOLOR
 
- 		if res {
+ 		if ( res ) {
 		
 			SendToGame("F")
 
