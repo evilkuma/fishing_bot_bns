@@ -62,9 +62,12 @@ return
 
 SendToGame(key) {
 
-	global GAME_TITLE
+	;global GAME_TITLE
 
-	ControlSendRaw, , %key%, %GAME_TITLE%
+	;ControlSendRaw, , %key%, %GAME_TITLE%
+	Send { %key% down }
+	Sleep, 100
+	Send { %key% }
 
 }
 
@@ -97,7 +100,7 @@ RunMacro(IMAGE_X, IMAGE_Y, PCOLOR) {
 
  		if ( res ) {
 		
-			SendToGame("F")
+			SendToGame("f")
 
 			Sleep, 500
 
